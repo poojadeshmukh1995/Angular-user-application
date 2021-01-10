@@ -24,6 +24,7 @@ export class UserListComponent implements OnInit, OnChanges {
    ngOnInit() {
       this.differentiateUsers();
    }
+   // method to add new user
    newUserData(event) {
       this.userListArray.push(event);
       this.userListArray.forEach((item) => {
@@ -32,12 +33,13 @@ export class UserListComponent implements OnInit, OnChanges {
       this.totalUsers = this.userListArray.length < 10 ? this.totalUsers = this.userListArray.length * 10 : 100;
       this.differentiateUsers();
    }
+   // method to differentiate female and male users
    differentiateUsers() {
       const femaleUsers = this.userListArray.filter((item) => {
          return item.gender === 'Female';
       });
       this.feMaleUsers = femaleUsers.length;
-      this.maleUsers = this.userListArray.length - this.feMaleUsers; 
+      this.maleUsers = this.userListArray.length - this.feMaleUsers;
    }
 
 }
