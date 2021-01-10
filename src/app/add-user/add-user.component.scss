@@ -1,0 +1,25 @@
+.col {
+   display: grid;
+}
+.control {
+   margin-top: 30px;
+   input, textarea {
+      margin-left: 50px;
+   }
+   dp-date-picker {
+      margin-left: 87px; 
+   }
+}
+button{
+   margin-top: 30px;
+   margin-left: 90px;
+}
+
+.example-additional-selection {
+   opacity: 0.75;
+   font-size: 0.75em;
+ }
+
+ ::ng-deep .cdk-overlay-container{
+   z-index: 2074 ;
+ }

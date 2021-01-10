@@ -1,0 +1,54 @@
+<div class="container row">
+   <div class="col-sm-8 table-responsive">
+      <h2>Users List</h2>
+      <table class="table table-bordered table-condensed">
+         <thead>
+            <tr>
+               <th *ngFor="let haeding of userListTableHeading">
+                  <span>{{haeding}}</span>
+               </th>
+            </tr>
+         </thead>
+         <tbody>
+            <ng-container *ngFor="let user of userListArray">
+               <tr>
+                  <td>
+                     <span>{{user.fullName}}</span>
+                  </td>
+                  <td>
+                     <span>{{user.dob| date:'longDate'}}</span>
+                  </td>
+                  <td>
+                     <span>{{user.languages}}</span>
+                  </td>
+                  <td>
+                     <span>{{user.gender}}</span>
+                  </td>
+               </tr>
+            </ng-container>
+         </tbody>
+      </table>
+      <button type="button" data-toggle="modal" data-target="#myModal">Add New User</button>
+   </div>
+   <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+               <h4 class="modal-title">Add new user</h4>
+            </div>
+            <div class="modal-body">
+               <app-add-user (newUserData)="newUserData($event)"></app-add-user>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="col-sm-4 progressBar">
+      <mat-progress-bar mode="determinate" [value]="totalUsers"></mat-progress-bar>
+      {{totalUsers}}
+      <h3>Female Users</h3>
+      {{feMaleUsers}}
+      <h3>Male Users</h3>
+      {{maleUsers}}
+   </div>
+</div>

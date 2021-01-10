@@ -1,0 +1,40 @@
+<div class="container">
+   <h3>Add new user</h3>
+   <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+         <div class="col">
+            <div class="control">
+               <span>Full Name</span>
+               <input type="text" formControlName="fullName">
+            </div>
+            <div class="control">
+               <span>DOB</span>
+               <dp-date-picker formControlName="dob" [config]="datePickerConfig"></dp-date-picker>
+            </div>
+            <div class="control overlay-container">
+               <mat-form-field appearance="fill">
+                  <mat-label>Languages</mat-label>
+                  <mat-select formControl="languages" multiple>
+                     <mat-select-trigger>
+                        {{toppings.value ? toppings.value[0] : ''}}
+                        <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+                           (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+                        </span>
+                     </mat-select-trigger>
+                     <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                  </mat-select>
+               </mat-form-field>
+            </div>
+            <div class="control">
+               <span>Gender</span>
+               <input type="radio" value="Male" formControlName="gender">Male
+               <input type="radio" value="Female" formControlName="gender">Female
+            </div>
+            <div class="control">
+               <span>About</span>
+               <textarea formControlName="about"></textarea>
+            </div>
+            <div class="col-sm-3"></div>
+         </div>
+         <button type="submit">Save user</button>
+   </form>
+</div>
